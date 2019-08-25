@@ -2,7 +2,29 @@
 
 ### 1. Qué es el hoisting?
 ### 2. Qué es un closure?
-### 3. Qué son y para qué sirven los generators?
+### 3. Cuál es la diferencia entre una variable: null, undefined y no declarada?
+
+undefined: Como JavaScript es un lenguaje de programación débilmente tipado nos permite hacer cosas muy flexibles como por ejemplo declarar una variable sin especificar su tipo. En términos prácticos sería declarar una variable sin valor. (Cabe destacar que JS en tiempo de ejecución asigna el tipo de variable dependiendo del valor que esta tenga)
+
+Ejemplo:
+```
+var a = 123; // El valor que contiene es un numero por ende JavaScript cataloga a la variable "a" de type Number.
+var b; // La variable "b" fue declarada pero no fue definido ningún valor en ella, por ende es de caracter undefined.
+```
+En resumen, si declaras una variable en JS y no le asignas valor alguno, por defecto es una variable undefined.
+
+null: Representa la ausencia de contenido. Esto quiere decir que en sí mismo null es un valor el cual no tiene contenido. Por otra parte el intérprete de JS a las variables null le asigna el tipo de variable Object. Este es un comportamiento extraño en el que puedes ver una explicación más detallada en el libro de Nicholas C. Zakas "THE PRINCIPLES OF OBJECT-ORIENTED JAVASCRIPT". Aquí un pequeño extracto del libro donde explica un poco este comportamiento:
+
+When you run typeof null, the result is "object". But why an object when the type is null? (In fact, this has been acknowledged as an error by TC39, the committee that designs and maintains JavaScript.
+
+no declarada: Como la expresión lo dice, son variables que no han sido declaradas con la palabra reservada var, (en ES6 también podemos declarar variables con let y const). Si queremos guardar el resultado de una operación en una variable no declarada, JavaScript crea una variable global con el identificador no declarado (nombre de la variable) y le asigna el valor de la operación
+
+Ejemplo:
+```
+number = 3 + 6; // La variable number no ha sido declarada y por lo que JavaScript crea la variable global `number` y le asigna el resultado de la operación.
+```
+Por otra parte si solo queremos acceder a una variable no declarada sin pasarle ningún valor nuestro código fallara, ya que JavaScript no tiene conocimiento de dicha variable. Puedes hacer la prueba abriendo tu consola del navegador, escribir una palabra y darle enter; Deberías ver un mensaje como: Uncaught ReferenceError: variable_no_declarada is not defined
+
 ### 4. Qué es y para qué sirve THIS? (la mejor explicación la leí en You Don’t Know JS — Kyle Simpson)
 
 La palabra reservada `this` hace referencia al contexto de ejecución actual, y en la mayoría de los casos, su valor es determinado dependiendo de como se llamó a la función en que se declaró. Existen una serie de factores que cambian el comportamiento de `this` en javascript
