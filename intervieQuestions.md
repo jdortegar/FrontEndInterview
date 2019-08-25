@@ -2,6 +2,37 @@
 
 ### 1. Qué es el hoisting?
 ### 2. Qué es un closure?
+
+Un closure es una característica que tiene JavaScript de que una función al ejecutarse, recuerde el entorno en la que fue creada. Por ejemplo:
+```
+function bar() {
+  var text = 'mundo';
+  function foo() {
+    console.log('hola ' + text);
+  }
+  foo();
+}
+bar();
+```
+Esta funcion imprimirá 'hola mundo', sin ningun problema.
+
+Ahora, consideremos lo siguiente:
+```
+var text = 'fforres';
+function bar() {
+  var text = 'mundo';
+  function foo() {
+    console.log('hola ' + text);
+  }
+  return foo;
+}
+var willItPrint = bar();
+willItPrint();
+```
+Si bien estamos definiendo en 2 lugares la variable text, al momento de definir la función foo la variable text tiene el valor de 'mundo'. La funcion foo la estamos devolviendo y guardando en la variable willItPrint por lo que independiente de el momento en el que llamemos a la funcion guardada en esa variable, el resultado será:
+```
+"hola mundo";
+```
 ### 3. Cuál es la diferencia entre una variable: null, undefined y no declarada?
 
 undefined: Como JavaScript es un lenguaje de programación débilmente tipado nos permite hacer cosas muy flexibles como por ejemplo declarar una variable sin especificar su tipo. En términos prácticos sería declarar una variable sin valor. (Cabe destacar que JS en tiempo de ejecución asigna el tipo de variable dependiendo del valor que esta tenga)
