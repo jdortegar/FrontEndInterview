@@ -1,25 +1,26 @@
-## Interview Questions Spanish
+### Interview Questions Spanish
 
-1. Qué es el hoisting?
-2. Qué es un closure?
-3. Qué son y para qué sirven los generators?
-4. Qué es y para qué sirve THIS? (la mejor explicación la leí en You Don’t Know JS — Kyle Simpson)
+## 1. Qué es el hoisting?
+## 2. Qué es un closure?
+## 3. Qué son y para qué sirven los generators?
+## 4. Qué es y para qué sirve THIS? (la mejor explicación la leí en You Don’t Know JS — Kyle Simpson) ###
 
 La palabra reservada `this` hace referencia al contexto de ejecución actual, y en la mayoría de los casos, su valor es determinado dependiendo de como se llamó a la función en que se declaró. Existen una serie de factores que cambian el comportamiento de `this` en javascript
 Modo estricto
 
 En modo estricto (usando 'use strict'), el valor de this es por defecto undefined, esto debido a razones de performance y seguridad, aunque el valor de this aún puede modificarse usando bind, call o apply. Este no es el caso para el modo no estricto. Por ejemplo
 
-``` function f1(){
+```
+function f1(){
     return this;
 }
 // En el browser
 f1() === window; // En modo estricto, esto retorna false 
 ```  
-this en objetos
+###this en objetos
 
 Cuando se usa this en el método de un objeto, su valor hace referencia al objeto en que es invocado, independiente del contexto en que se declara el método. Por ejemplo,
-``
+```
 var o = {p: 37};
 
 function fn() {
@@ -29,11 +30,11 @@ function fn() {
 o.f = fn;
 
 console.log(o.f()); // 37
-``
-bind, call y apply
+```
+###bind, call y apply
 
 El valor de this puede ser manualmente modificado al momento de ejecutar una función, usando los métodos mencionados. call y apply funcionan de forma similar, llaman a una función pasando como parametro el valor de this de forma explicita
-``
+```
 function add(c, d){
   return this.a + this.b + c + d;
 }
@@ -43,17 +44,17 @@ var o = {a:1, b:3};
 add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
 
 add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
-``
+```
 Por otro lado, bind asigna un valor al this de una función de forma permanente a una nueva función
-``
+```
 var add2 = add.bind({a:1, b:3})
 add2(1, 2) // 1 + 3 + 1 + 2 = 7
-``
-arrow functions
+```
+###arrow functions
 
 Las funciones de flecha asignan el valor de this al contexto 'padre' del contexto de ejecución. Independiente de si son llamadas directamente, o como método de un objeto, tampoco se puede cambiar el valor de this con las funciones bind, call y apply.
 
-5. Sabes quién es Kyle Simpson
+## 5. Sabes quién es Kyle Simpson
 6. Describir un poco de programación orientada a objetos en JS.
 7. Qué es un patrón de diseño en programación?
 8. Qué patrones de diseño conoces?
