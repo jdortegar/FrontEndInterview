@@ -143,8 +143,55 @@ add2(1, 2) // 1 + 3 + 1 + 2 = 7
 Las funciones de flecha asignan el valor de this al contexto 'padre' del contexto de ejecución. Independiente de si son llamadas directamente, o como método de un objeto, tampoco se puede cambiar el valor de this con las funciones bind, call y apply.
 
 ### 5. Sabes quién es Kyle Simpson
-6. Describir un poco de programación orientada a objetos en JS.
-7. Qué es un patrón de diseño en programación?
+Kyle Simpson es uno de los ponentes más reputados y conocidos de JavaScript, autor de la famosa serie de libros “You don’t know JavaScript!”. Ha sido uno de los ponentes de la pasada edición de JSCamp y, además, de verle allí, en GFT tuvimos la oportunidad de aprender de él, en directo, en un taller que impartió en nuestras oficinas de Sant Cugat. En concreto, sobre “Deep JavaScript Foundation”, en el que nos estuvo hablando acerca de object wrappers, coercion, scope, closure, types, prototype system, características de ES6 features, y mucho más.
+
+### 6. Describir un poco de programación orientada a objetos en JS.
+
+La programación orientada a objetos es un paradigma de programación que utiliza la abstracción para crear modelos basados ​​en el mundo real. Utiliza diversas técnicas de paradigmas previamente establecidas, incluyendo la modularidad, polimorfismo y encapsulamiento. Hoy en día, muchos lenguajes de programación (como Java, JavaScript, C#, C++, Python, PHP, Ruby y Objective-C) soportan programación orientada a objetos (POO).
+
+La programación orientada a objetos puede considerarse como el diseño de software a través de un conjunto de objetos que cooperan, a diferencia de un punto de vista tradicional en el que un programa puede considerarse como un conjunto de funciones, o simplemente como una lista de instrucciones para la computadora. En la programación orientada a objetos, cada objeto es capaz de recibir mensajes, procesar datos y enviar mensajes a otros objetos. Cada objeto puede verse como una pequeña máquina independiente con un papel o responsabilidad definida.
+
+POO pretende promover una mayor flexibilidad y facilidad de mantenimiento en la programación y es muy popular en la ingeniería de software a gran escala. Gracias a su fuerte énfasis en la modularidad, el código orientado a objetos está concebido para ser más fácil de desarrollar y más fácil de entender posteriormente, prestándose a un análisis más directo, a una mayor codificación y comprensión de situaciones y procedimientos complejos que otros métodos de programación menos modulares. 2
+
+### Terminología
+
+**Clase**
+
+Define las características del Objeto.
+
+**Objeto**
+
+Una instancia de una Clase.
+
+**Propiedad**
+
+Una característica del Objeto, como el color.
+
+**Método**
+
+Una capacidad del Objeto, como caminar.
+
+**Constructor**
+
+Es un método llamado en el momento de la creación de instancias.
+
+**Herencia**
+
+Una Clase puede heredar características de otra Clase.
+
+**Encapsulamiento**
+
+Una Clase sólo define las características del Objeto, un Método sólo define cómo se ejecuta el Método.
+
+**Abstracción**
+
+La conjunción de herencia compleja, métodos y propiedades que un objeto debe ser capaz de simular en un modelo de la realidad.
+
+**Polimorfismo**
+
+Diferentes Clases podrían definir el mismo método o propiedad.
+
+### 7. Qué es un patrón de diseño en programación?
 8. Qué patrones de diseño conoces?
 9. Que es una Class?
 10. Por qué se pueden usar Class en ES6+?
