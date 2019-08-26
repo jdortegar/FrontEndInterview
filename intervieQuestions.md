@@ -192,7 +192,23 @@ La conjunción de herencia compleja, métodos y propiedades que un objeto debe s
 Diferentes Clases podrían definir el mismo método o propiedad.
 
 ### 7. Qué es un patrón de diseño en programación?
+
+Es la base para la búsqueda de soluciones a problemas muy comunes en el desarrollo de aplicativos y otros ámbitos referentes al diseño de interacciones o interfaces.
+
+Se podría resumir de una manera más sencilla como “una manera de resolver una problemática”, un patrón de diseño tiene que cumplir por lo menos con los siguientes objetivos.
+
+* Estandarizar el lenguaje entre desarrolladores.
+* Evitar perder tiempo en soluciones a problemas ya resueltos o conocidos.
+* Crear código que se pueda reutilizar.
+
 8. Qué patrones de diseño conoces?
+
+* Patrón Object Literals
+* Patrón Module
+* Patrón Prototype
+* Patrón factory de singletons
+
+
 9. Que es una Class?
 10. Por qué se pueden usar Class en ES6+?
 11. Que es Functional Programming (FP)?
@@ -206,13 +222,52 @@ Diferentes Clases podrían definir el mismo método o propiedad.
 19. Qué es el State de un componente?
 20. Qué es una Prop?
 21. Qué diferencia hay entre State y Props?
-22. Se puede (debe) mutar una prop? Por qué?
+### 22. Se puede (debe) mutar una prop? Por qué?
+
+No! En realidad, es todo lo contrario: la mutabilidad complica las cosas, al less a largo ploop. Sí, hace que su encoding inicial sea más fácil porque puede simplemente cambiar las cosas donde quiera, pero cuando su progtwig crece, se convierte en un problema. Si un valor cambia, ¿qué lo cambió?
+
+Cuando haces que todo sea inmutable, significa que los datos ya no pueden cambiarse por sorpresa. Usted sabe con certeza que si transfiere un valor a una function, no puede modificarse en esa function.
+
+En pocas palabras: si usa valores inmutables, es muy fácil razonar acerca de su código: todos obtienen una copy * única de sus datos, por lo que no pueden utilizarla y romper otras partes de su código. ¡Imagínese lo fácil que es trabajar en un entorno con múltiples subprocesss!
+
+Nota 1: Existe un costo de performance potencial para la inmutabilidad dependiendo de lo que esté haciendo, pero cosas como Immutable.js optimizan lo mejor que pueden.
+
+Nota 2: en el improbable caso de que no estés seguro, Immutable.js y ES6 const significan cosas muy diferentes.
+
 23. Cómo se puede actualizar el State de un componente?
 24. Qué precauciones hay que tener al asignar un nuevo State?
 25. Qué lifecycles son importantes/comunes/principales en un componente?
-26. Qué hay que tener en cuenta cuando se iteran datos para renderizar multiples veces un componente? (la Key)
-27. Qué precauciones hay que tener con la Key?
-28. Por qué debe ser única?
+### 26. Qué hay que tener en cuenta cuando se iteran datos para renderizar multiples veces un componente? (Keys)
+
+Las keys ayudan a React a identificar que ítems han cambiado, son agregados, o son eliminados. Las keys deben ser dadas a los elementos dentro del array para darle a los elementos una identidad estable:
+```
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li key={number.toString()}>
+    {number}
+  </li>
+);
+```
+La mejor forma de elegir una key es usando un string que identifique únicamente a un elemento de la lista entre sus hermanos. Habitualmente vas a usar IDs de tus datos como key:
+```
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+);
+```
+Cuando no tengas IDs estables para renderizar, puedes usar el índice del ítem como una key como último recurso:
+```
+const todoItems = todos.map((todo, index) =>
+  // Only do this if items have no stable IDs
+  <li key={index}>
+    {todo.text}
+  </li>
+);
+```
+No recomendamos usar índices para keys si el orden de los ítems puede cambiar. Esto puede impactar negativamente el rendimiento y puede causar problemas con el estado del componente. Revisa el artículo de Robin Pokorny para una explicación en profundidad de los impactos negativos de usar un índice como key. Si eliges no asignar una key explícita a la lista de ítems, React por defecto usará índices como keys.
+
+
 29. Que es el Virtual DOM?
 30. Qué diferencias tiene el Virtual DOM con el DOM del browser?
 31. Por qué React usa Virtual DOM?
