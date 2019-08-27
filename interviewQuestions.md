@@ -308,3 +308,27 @@ Como su propio nombre indica, las bases de datos no relacionales son las que, a 
 
 La indiscutible reina del reciente éxito de las bases de datos no relacionales es MongoDB seguida por Redis, Elasticsearch y Cassandra.
 
+### Que son los React Hooks ?
+
+Hooks son funciones que te permiten “enganchar” el estado de React y el ciclo de vida desde componentes funcionales. Los hooks no funcionan dentro de las clases — te permiten usar React sin clases.
+
+Hooks son funciones de JavaScript, pero imponen dos reglas adicionales:
+
+* Solo llamar Hooks en el nivel superior. No llames Hooks dentro de loops, condiciones o funciones anidadas.
+* Solo llamar Hooks desde componentes funcionales de React. No llames Hooks desde las funciones regulares de JavaScript. (Solo hay otro lugar válido para llamar Hooks: tus propios Hooks personalizados. En un momento aprenderemos sobre estos).
+
+#### Basic Hooks
+
+* useState
+* useEffect
+* useContext
+
+#### Additional Hooks
+
+* useReducer
+* useCallback
+* useMemo
+* useRef
+* useImperativeHandle
+* useLayoutEffect
+useDebugValue
