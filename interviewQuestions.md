@@ -273,7 +273,11 @@ No recomendamos usar índices para keys si el orden de los ítems puede cambiar.
 31. Por qué React usa Virtual DOM?
 32. Describir qué es lo que sucede en el Browser DOM cuando se renderiza multiples veces un componente utilizando el “index” del iterador como Key.
 33. Ahora describir qué sucede en el Browser DOM cuando se utiliza un valor único como Key.
-34. De qué otras formas podrías gestionar el estado de la aplicación? Diferencias con patron MVC? (en este caso usaban Redux en el equipo)
+### 34. De qué otras formas podrías gestionar el estado de la aplicación? Diferencias con patron MVC? (en este caso usaban Redux en el equipo)
+
+
+
+
 35. Como se construye un Store en React-Redux?
 36. Por qué decimos que en Redux importa la inmutabilidad?
 37. Por qué una prop debe ser inmutable?
@@ -308,7 +312,7 @@ Como su propio nombre indica, las bases de datos no relacionales son las que, a 
 
 La indiscutible reina del reciente éxito de las bases de datos no relacionales es MongoDB seguida por Redis, Elasticsearch y Cassandra.
 
-### Que son los React Hooks ?
+### 55. Que son los React Hooks ?
 
 Hooks son funciones que te permiten “enganchar” el estado de React y el ciclo de vida desde componentes funcionales. Los hooks no funcionan dentro de las clases — te permiten usar React sin clases.
 
@@ -332,3 +336,9 @@ Hooks son funciones de JavaScript, pero imponen dos reglas adicionales:
 * useImperativeHandle
 * useLayoutEffect
 useDebugValue
+
+### 56. Ques es cors y como se prevenirlo ?
+
+El Intercambio de Recursos de Origen Cruzado (CORS) es un mecanismo que utiliza cabeceras HTTP adicionales para permitir que un user agent obtenga permiso para acceder a recursos seleccionados desde un servidor, en un origen distinto (dominio) al que pertenece. Un agente crea una petición HTTP de origen cruzado cuando solicita un recurso desde un dominio distinto, un protocolo o un puerto diferente al del documento que lo generó.
+
+Para prevernilo hay que hablitar el permiso, en express usar cors dependency
