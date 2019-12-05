@@ -420,4 +420,14 @@ async function asyncTask(cb) {
 }
 ```
 
+### 58. How to promisify a function
+
+const myFirstPromise = () => return new Promise((resolve, reject) => {
+  // do something asynchronous which eventually calls either:
+  //
+  //   resolve(someValue); // fulfilled
+  // or
+  //   reject("failure reason"); // rejected
+});
+
 
