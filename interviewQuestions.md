@@ -236,7 +236,13 @@ Nota 2: en el improbable caso de que no estés seguro, Immutable.js y ES6 const 
 
 23. Cómo se puede actualizar el State de un componente?
 24. Qué precauciones hay que tener al asignar un nuevo State?
-25. Qué lifecycles son importantes/comunes/principales en un componente?
+### 25. Qué lifecycles son importantes/comunes/principales en un componente?
+
+Mounting — It is at this phase the component is created (your code, and react’s internals) then inserted into the DOM
+Updating — A React component “grows”
+Unmounting — Final phase
+Error Handling — Sometimes code doesn’t run or there’s a bug somewhere
+
 ### 26. Qué hay que tener en cuenta cuando se iteran datos para renderizar multiples veces un componente? (Keys)
 
 Las keys ayudan a React a identificar que ítems han cambiado, son agregados, o son eliminados. Las keys deben ser dadas a los elementos dentro del array para darle a los elementos una identidad estable:
@@ -342,3 +348,76 @@ useDebugValue
 El Intercambio de Recursos de Origen Cruzado (CORS) es un mecanismo que utiliza cabeceras HTTP adicionales para permitir que un user agent obtenga permiso para acceder a recursos seleccionados desde un servidor, en un origen distinto (dominio) al que pertenece. Un agente crea una petición HTTP de origen cruzado cuando solicita un recurso desde un dominio distinto, un protocolo o un puerto diferente al del documento que lo generó.
 
 Para prevernilo hay que hablitar el permiso, en express usar cors dependency
+
+### 57. Async Functions
+
+ES5 callback-hell
+
+```
+function AsyncTask() {
+   asyncFuncA(function(err, resultA){
+      if(err) return cb(err);
+
+      asyncFuncB(function(err, resultB){
+         if(err) return cb(err);
+
+          asyncFuncC(function(err, resultC){
+               if(err) return cb(err);
+
+               // And so it goes....
+          });
+      });
+   });
+}
+```
+
+ES6 Promises
+
+```
+function asyncTask(cb) {
+
+   asyncFuncA.then(AsyncFuncB)
+      .then(AsyncFuncC)
+      .then(AsyncFuncD)
+      .then(data => cb(null, data)
+      .catch(err => cb(err));
+}
+```
+
+ES7 Async/await
+```
+async function asyncTask(cb) {
+    try {
+       const user = await UserModel.findById(1);
+       if(!user) return cb('No user found');
+    } catch(e) {
+        return cb('Unexpected error occurred');
+    }
+
+    try {
+       const savedTask = await TaskModel({userId: user.id, name: 'Demo Task'});
+    } catch(e) {
+        return cb('Error occurred while saving task');
+    }
+
+    if(user.notificationsEnabled) {
+        try {
+            await NotificationService.sendNotification(user.id, 'Task Created');  
+        } catch(e) {
+            return cb('Error while sending notification');
+        }
+    }
+
+    if(savedTask.assignedUser.id !== user.id) {
+        try {
+            await NotificationService.sendNotification(savedTask.assignedUser.id, 'Task was created for you');
+        } catch(e) {
+            return cb('Error while sending notification');
+        }
+    }
+
+    cb(null, savedTask);
+}
+```
+
+
