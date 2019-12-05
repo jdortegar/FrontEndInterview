@@ -422,6 +422,7 @@ async function asyncTask(cb) {
 
 ### 58. How to promisify a function
 
+```
 const myFirstPromise = () => return new Promise((resolve, reject) => {
   // do something asynchronous which eventually calls either:
   //
@@ -429,5 +430,6 @@ const myFirstPromise = () => return new Promise((resolve, reject) => {
   // or
   //   reject("failure reason"); // rejected
 });
+```
 
 
