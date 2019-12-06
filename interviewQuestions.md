@@ -432,4 +432,7 @@ const myFirstPromise = () => return new Promise((resolve, reject) => {
 });
 ```
 
+### 59. Difference between let and var?
+
+let has block level scope and var has function level scope.
 
