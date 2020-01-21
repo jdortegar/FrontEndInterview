@@ -419,6 +419,12 @@ async function asyncTask(cb) {
     cb(null, savedTask);
 }
 ```
+Promises have been successful at alleviating the problems associated with a strictly callback solution to asynchronous programming but they can be difficult to use when lots of Promises are involved and must be sequenced with then() as well as having to handle errors associated with all that chaining.
+
+The async / await keywords are used to allow developers to write code that feels very much like old-fashioned imperative code -or sequential code- but that is still asynchronous.
+
+Candidates should know when it is appropriate and possible to use these keywords. In particular they should know that async can only be placed before the function keyword on a function definition. This marks the function as returning a Promise. The await keyword can only be used inside such an asynchronous function and must be placed before a call to a function that will return a Promise.
+
 
 ### 58. How to promisify a function
 
@@ -436,3 +442,18 @@ const myFirstPromise = () => return new Promise((resolve, reject) => {
 
 let has block level scope and var has function level scope.
 
+### 60. What does the use strict; directive do?
+
+The purpose of the use strict; directive is to ensure that code is executed in strict mode. So what is “strict mode”? Strict mode helps developers avoid a handful of pitfalls in Javascript. Enabling strict mode means that the following will result in an error.
+
+* Not declaring a variable. This helps avoid mistyping a variable name as the mistyped variable will appear to be a new, undeclared variable.
+* Deleting a variable, i.e., delete x;
+* Writing to a read-only property (read-only properties are those defined via Object.defineProperty()).
+* Using variables with names like arguments or eval.
+* Use of the with statement.
+
+An answer to this question should include one or more of the above. Bonus points can be given if the candidate says something about the scope of strict mode. In particular, if use strict; is at the top level, then it applies to the entire module but if it is found inside a function definition, it applies only to the code in the body of the function.
+
+### 61. What’s a pure function and why should you care?
+
+A pure function is a function that returns a value that depends only on its input arguments and additionally has no side effects. These are functions in the mathematical sense. Pure functions are the cornerstone of functional programming which has become increasingly popular over the years. Programming with pure functions is desirable because they are easier to reason about since there is no context that needs to be considered when using or debugging them. It also make refactoring simpler since pure functions can be moved (or removed) without affecting the behavior of the program. They give rise to what’s known as “referential transparency” and bonus points can be awarded if a candidate mentions this.
