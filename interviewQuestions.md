@@ -211,7 +211,10 @@ Se podría resumir de una manera más sencilla como “una manera de resolver un
 
 9. Que es una Class?
 10. Por qué se pueden usar Class en ES6+?
-11. Que es Functional Programming (FP)?
+### 11. Que es Functional Programming (FP)?
+
+https://medium.com/@sebastianyabiku/guia-rapida-de-programacion-funcional-718aa277386b
+
 12. Para que sirve o con qué propósito se usa el FP?
 13. Explicar qué es React a una persona que no sabe nada de programación.
 14. Ahora explicar con términos más técnicos qué es React.
